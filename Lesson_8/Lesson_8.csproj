@@ -1,13 +1,24 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
 		<TargetFramework>net5.0</TargetFramework>
+		<Version>0.0.1</Version>
+		<Authors>yurec0098</Authors>
+		<RepositoryUrl>https://github.com/yurec0098/Lesson_8</RepositoryUrl>
+		<AssemblyVersion>0.0.1.0</AssemblyVersion>
+		<Description>Консольное приложение, которое при старте выводит приветствие, записанное в настройках приложения.
+Запрашивает у пользователя имя, возраст и род деятельности, а затем сохраняет данные в настройках.
+При следующем запуске отображает эти сведения.</Description>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)'=='Release'">
 		<GenerateSerializationAssemblies>False</GenerateSerializationAssemblies>
 		<GenerateAssemblyInfo>False</GenerateAssemblyInfo>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+	</ItemGroup>
 	
 </Project>
