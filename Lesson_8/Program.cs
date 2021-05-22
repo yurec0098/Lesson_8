@@ -64,20 +64,7 @@ namespace Lesson_8
 			try
 			{
 				if (ConfigurationManager.AppSettings[key] == null)
-				{
-					(int Left, int Top) cursorPosition = Console.GetCursorPosition();
-					Console.WriteLine(addText);
-
-					string value = Console.ReadLine();
-					while (string.IsNullOrWhiteSpace(value))
-					{
-						ClearConsoleLines(cursorPosition.Left, cursorPosition.Top, 2);
-						Console.WriteLine($"Повторим... {addText}");
-						value = Console.ReadLine();
-					}
-
-					AddUpdateAppSettings(key, value);
-				}
+					AddUpdateAppSettings(key, GetString(addText));
 
 				Console.WriteLine(infoText, ConfigurationManager.AppSettings[key]);
 			}
@@ -106,6 +93,22 @@ namespace Lesson_8
 			{
 				Console.WriteLine(ex.Message);
 			}
+		}
+
+		private static string GetString(string addText)
+		{
+			(int Left, int Top) cursorPosition = Console.GetCursorPosition();
+			Console.WriteLine(addText);
+
+			string value = Console.ReadLine();
+			while (string.IsNullOrWhiteSpace(value))
+			{
+				ClearConsoleLines(cursorPosition.Left, cursorPosition.Top, 2);
+				Console.WriteLine($"Повторим... {addText}");
+				value = Console.ReadLine();
+			}
+
+			return value;
 		}
 
 		private static void ClearConsoleLines(int left, int top, int count)
